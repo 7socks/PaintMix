@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './server/index.js',
+  entry: path.join(__dirname, 'client/src/index.js'),
   output: {
-    path: path.join(__dirname, 'client/dist'),
+    path: path.resolve(__dirname, 'client/dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -14,9 +14,13 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: 'css-loader'
       }
     ]
   }
