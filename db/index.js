@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb://${process.env.DB_HOST}`)
+
+mongoose.connect(`mongodb://${process.env.DB_HOST}/paint`)
   .then(() => {
     console.log('Connected to database');
   })
@@ -7,4 +8,4 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}`)
     console.error(err);
   });
 
-module.exports.db = require('./controllers.js');
+module.exports = require('./controllers.js');
