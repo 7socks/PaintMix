@@ -11,7 +11,13 @@ class App extends React.Component {
 
     this.state = {
       color: 'cyan',
-      bucket: {}
+      bucket: {
+        color: {
+          c: 30,
+          m: 0,
+          y: 40
+        }
+      }
     };
   }
 

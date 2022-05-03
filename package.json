@@ -20,6 +20,7 @@
   "homepage": "https://github.com/7socks/mvp#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "colord": "^2.9.2",
     "express": "^4.18.1",
     "mongoose": "^6.3.2",
     "react": "^17.0.2",
