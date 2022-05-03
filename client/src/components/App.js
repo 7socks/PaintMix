@@ -2,6 +2,7 @@ import React from 'react';
 import api from '../util/api.js';
 
 import Nav from './Nav.js';
+import Sidebar from './Sidebar.js';
 import Bucket from './Bucket.js';
 import Selector from './Selector.js';
 
@@ -12,6 +13,7 @@ class App extends React.Component {
     this.state = {
       color: 'cyan',
       bucket: {
+        createdAt: Date.now(),
         name: 'all',
         c: 0,
         m: 0,
@@ -49,6 +51,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Nav/>
+        <Sidebar bucket={this.state.bucket}/>
         <Bucket bucket={this.state.bucket} addDrop={this.addDrop}/>
         <Selector color={this.state.color} select={this.selectColor} />
       </div>

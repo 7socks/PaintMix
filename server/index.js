@@ -26,6 +26,7 @@ app.get('/buckets/all', (req, res) => {
 app.get('/buckets', (req, res) => {
   db.get(req.query.id)
     .then((data) => {
+      console.log(data);
       res.status(200).send({
         id: data._id,
         name: data.name,
