@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colord, extend} from 'colord';
-import cmykPlugin from 'colord/plugins/cmyk';
-extend([cmykPlugin]);
+
+import mixColor from '../util/color.js';
 
 const BucketView = styled.div`
   border: 10px solid #505050;
@@ -13,12 +12,7 @@ const BucketView = styled.div`
 `
 
 const Bucket = ({bucket}) => {
-  var hex = colord({
-    c: bucket.c,
-    m: bucket.m,
-    y: bucket.y,
-    k: 0
-  }).toHex();
+  var hex = mixColor(bucket);
   return (
     <div className="bucket-container">
       <BucketView hex={hex}/>

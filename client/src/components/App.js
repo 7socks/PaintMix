@@ -11,22 +11,29 @@ class App extends React.Component {
 
     this.state = {
       color: 'cyan',
-      bucket: api.get('62717e86c2bd1f47fa7eaa06')
+      bucket: {
+        name: 'all',
+        c: 0,
+        m: 0,
+        y: 0
+      }
     };
 
     this.selectColor = this.selectColor.bind(this);
   }
 
   componentDidMount() {
-    // this.get('')
-    //   .then((bucket) => {
-    //     this.setState({bucket: bucket})
-    //   })
-    //   .catch((err) => console.error(err));
+    api.get('62717e86c2bd1f47fa7eaa06')
+      .then((bucket) => {
+        this.setState({bucket: bucket})
+      })
+      .catch((err) => console.error(err));
   }
 
-  selectColor() {
-    //this.setState();
+  selectColor(e) {
+    this.setState({
+      color: e.target.value
+    });
   }
 
   render() {

@@ -7,6 +7,7 @@ const Selector = ({color, selectColor}) => {
       <input type="radio" name="color" value="cyan"
         className="selector sel-cyan"
         onClick={selectColor}
+        defaultChecked={true}
       />cyan</label>
       <label>
       <input type="radio" name="color" value="magenta"
