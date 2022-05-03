@@ -12,20 +12,38 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Routing
-app.get('/buckets', (req, res) => {
-  db.get(req.query._id)
+app.get('/buckets/all', (req, res) => {
+  db.collate()
     .then((data) => {
       res.status(200).send(data);
     })
     .catch((err) => {
       console.error(err);
       res.status(500).send();
+    });
+})
+
+app.get('/buckets', (req, res) => {
+  db.get(req.query._id)
+    .then((data) => {
+      res.status(200).send({
+        id: data._id,
+        name: data.name,
+        c: data.C,
+        m: data.M,
+        y: data.Y,
+        createdAt: data.createdAt
+      });
     })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send();
+    });
 });
 
 app.put('/buckets/', (req, res) => {
   db.put({
-    _id: req.body._id,
+    _id: req.body.id,
     color: req.body.color
   })
     .then(() => {
@@ -34,7 +52,7 @@ app.put('/buckets/', (req, res) => {
     .catch((err) => {
       console.error(err);
       res.status(500).send();
-    })
+    });
 });
 
 app.post('/buckets', (req, res) => {
@@ -44,7 +62,7 @@ app.post('/buckets', (req, res) => {
     })
     .catch(() => {
       res.status(500).send();
-    })
+    });
 });
 
 app.listen(3400, () => {

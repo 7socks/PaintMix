@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from '../util/api.js';
 
 import Nav from './Nav.js';
 import Bucket from './Bucket.js';
@@ -11,14 +11,18 @@ class App extends React.Component {
 
     this.state = {
       color: 'cyan',
-      bucket: {
-        color: {
-          c: 30,
-          m: 0,
-          y: 40
-        }
-      }
+      bucket: api.get('62717e86c2bd1f47fa7eaa06')
     };
+
+    this.selectColor = this.selectColor.bind(this);
+  }
+
+  componentDidMount() {
+    // this.get('')
+    //   .then((bucket) => {
+    //     this.setState({bucket: bucket})
+    //   })
+    //   .catch((err) => console.error(err));
   }
 
   selectColor() {

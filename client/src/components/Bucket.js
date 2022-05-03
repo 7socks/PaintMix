@@ -14,9 +14,9 @@ const BucketView = styled.div`
 
 const Bucket = ({bucket}) => {
   var hex = colord({
-    c: bucket.color.c,
-    m: bucket.color.m,
-    y: bucket.color.y,
+    c: bucket.c,
+    m: bucket.m,
+    y: bucket.y,
     k: 0
   }).toHex();
   return (

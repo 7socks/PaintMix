@@ -16,10 +16,14 @@ body {
   background-color: rgb(255, 247, 177);
 }
 
-.selector {
+.selector-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.selector {
+
 }
 
 .bucket-container {

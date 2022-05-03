@@ -2,19 +2,22 @@ import React from 'react';
 
 const Selector = ({color, selectColor}) => {
   return (
-    <div className="selector">
-      <button
-        className={color === "cyan" ? "selector-cyan selected" : "selector-cyan"}
-        onClick={selectColor}>cyan
-      </button>
-      <button
-        className={color === "magenta" ? "selector-magenta selected" : "selector-magenta"}
-        onClick={selectColor}>magenta
-      </button>
-      <button
-        className={color === "yellow" ? "selector-yellow selected" : "selector-yellow"}
-        onClick={selectColor}>yellow
-      </button>
+    <div className="selector-container">
+      <label>
+      <input type="radio" name="color" value="cyan"
+        className="selector sel-cyan"
+        onClick={selectColor}
+      />cyan</label>
+      <label>
+      <input type="radio" name="color" value="magenta"
+        className="selector sel-magenta"
+        onClick={selectColor}
+      />magenta</label>
+      <label>
+      <input type="radio" name="color" value="yellow"
+        className="selector sel-yellow"
+        onClick={selectColor}
+      />yellow</label>
     </div>
   );
 };
