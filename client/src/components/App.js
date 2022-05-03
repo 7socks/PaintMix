@@ -20,6 +20,7 @@ class App extends React.Component {
     };
 
     this.selectColor = this.selectColor.bind(this);
+    this.addDrop = this.addDrop.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class App extends React.Component {
         this.setState({bucket: bucket})
       })
       .catch((err) => console.error(err));
+  }
+
+  addDrop(e) {
+    api.put(this.state.bucket.id, this.state.color);
   }
 
   selectColor(e) {
@@ -40,7 +45,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Nav/>
-        <Bucket bucket={this.state.bucket}/>
+        <Bucket bucket={this.state.bucket} addDrop={this.addDrop}/>
         <Selector color={this.state.color} select={this.selectColor} />
       </div>
     );

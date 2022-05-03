@@ -11,10 +11,10 @@ const BucketView = styled.div`
   background-color: ${({hex}) => hex};
 `
 
-const Bucket = ({bucket}) => {
+const Bucket = ({bucket, addDrop}) => {
   var hex = mixColor(bucket);
   return (
-    <div className="bucket-container">
+    <div className="bucket-container" onClick={addDrop}>
       <BucketView hex={hex}/>
     </div>
   );
