@@ -32,7 +32,11 @@ class App extends React.Component {
   }
 
   addDrop(e) {
-    api.put(this.state.bucket.id, this.state.color);
+    api.put(this.state.bucket.id, this.state.color)
+      .then((bucket) => {
+        console.log(bucket);
+        this.setState({bucket: bucket});
+      });
   }
 
   selectColor(e) {

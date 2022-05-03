@@ -1,7 +1,7 @@
 const Bucket = require('./models.js');
 
 module.exports.get = (id) => {
-  return Bucket.findOne(id);
+  return Bucket.findOne({_id: id});
 };
 
 module.exports.put = (data) => {

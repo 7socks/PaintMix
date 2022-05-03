@@ -3,6 +3,7 @@ import cmykPlugin from 'colord/plugins/cmyk';
 extend([cmykPlugin]);
 
 const mixColor = ({c, m, y}) => {
+  console.log('colormix', c, m, y);
   var total = c + m + y;
   return colord({
     c: c * (100 / total),

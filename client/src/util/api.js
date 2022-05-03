@@ -25,8 +25,8 @@ export default {
         color: color
       }
     })
-      .then(() => {
-        console.log('success')
+      .then(({ data }) => {
+        return data;
       })
       .catch((err) => {
         console.error(err);

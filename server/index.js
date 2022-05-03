@@ -24,7 +24,7 @@ app.get('/buckets/all', (req, res) => {
 })
 
 app.get('/buckets', (req, res) => {
-  db.get(req.query._id)
+  db.get(req.query.id)
     .then((data) => {
       res.status(200).send({
         id: data._id,
@@ -47,7 +47,17 @@ app.put('/buckets/', (req, res) => {
     color: req.body.color
   })
     .then(() => {
-      res.status(201).send();
+      return db.get(req.body.id);
+    })
+    .then((data) => {
+      res.status(201).send({
+        id: data._id,
+        name: data.name,
+        c: data.C,
+        m: data.M,
+        y: data.Y,
+        createdAt: data.createdAt
+      });
     })
     .catch((err) => {
       console.error(err);
