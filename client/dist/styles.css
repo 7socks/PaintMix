@@ -183,10 +183,20 @@ input[type=radio]:checked + .sel-yellow {
 }
 
 .browse li {
-  width: 5em;
-  height: 5em;
+  width: 6em;
+  height: 6em;
   text-align: center;
   text-anchor: middle;
-  border: 2px solid #505050;
-  border-radius: 5%;
+  border: 5px solid #505050;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+}
+
+.browse li:hover {
+  background: #505050;
+  color: white;
 }

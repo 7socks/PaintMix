@@ -28,7 +28,9 @@ class BrowseList extends React.Component {
           return <li
             key={i}
             onClick={() => { this.props.select(bucket.id); }}
-          >{bucket.name}</li>;
+          >
+            <span>{bucket.name}</span>
+          </li>;
         })}
       </ul>
     )
