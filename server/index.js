@@ -11,6 +11,18 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// Format
+const format = (data) => {
+  return {
+    id: data._id,
+    name: data.name,
+    c: data.C,
+    m: data.M,
+    y: data.Y,
+    createdAt: data.createdAt
+  };
+};
+
 // Routing
 app.get('/buckets/all', (req, res) => {
   db.collate()
@@ -26,15 +38,7 @@ app.get('/buckets/all', (req, res) => {
 app.get('/buckets', (req, res) => {
   db.get(req.query.id)
     .then((data) => {
-      console.log(data);
-      res.status(200).send({
-        id: data._id,
-        name: data.name,
-        c: data.C,
-        m: data.M,
-        y: data.Y,
-        createdAt: data.createdAt
-      });
+      res.status(200).send(format(data));
     })
     .catch((err) => {
       console.error(err);
@@ -51,14 +55,7 @@ app.put('/buckets/', (req, res) => {
       return db.get(req.body.id);
     })
     .then((data) => {
-      res.status(201).send({
-        id: data._id,
-        name: data.name,
-        c: data.C,
-        m: data.M,
-        y: data.Y,
-        createdAt: data.createdAt
-      });
+      res.status(201).send(format(data));
     })
     .catch((err) => {
       console.error(err);
@@ -68,8 +65,8 @@ app.put('/buckets/', (req, res) => {
 
 app.post('/buckets', (req, res) => {
   db.create(req.body)
-    .then(() => {
-      res.status(201).send();
+    .then((data) => {
+      res.status(201).send(format(data));
     })
     .catch(() => {
       res.status(500).send();

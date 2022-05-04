@@ -31,5 +31,30 @@ export default {
       .catch((err) => {
         console.error(err);
       });
+  },
+  post: (data) => {
+    return axios({
+      method: 'POST',
+      url: '/buckets',
+      data: data
+    })
+      .then(({data}) => {
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+  getAll: () => {
+    return axios({
+      method: 'GET',
+      url: 'buckets/all'
+    })
+      .then(({data}) => {
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 };

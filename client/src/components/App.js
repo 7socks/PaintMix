@@ -57,13 +57,21 @@ class App extends React.Component {
     });
   }
 
-  createBucket() {}
+  createBucket(data) {
+    api.post(data)
+      .then((bucket) => {
+        this.setState({
+          view: 'bucket',
+          bucket: bucket
+        });
+      });
+  }
 
   render() {
     let page;
     if (this.state.view === 'home') {
       page = <div className="page">
-        <Bucket bucket={this.state.bucket} addDrop={this.addDrop}/>
+        <Bucket bucket={this.state.bucket}/>
         </div>
     } else if (this.state.view === 'bucket') {
       page = <div className="page">
