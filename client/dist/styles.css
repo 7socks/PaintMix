@@ -1,14 +1,22 @@
 /*** Main ***/
 body {
   margin: 0;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-content: center;
   flex-wrap: wrap;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
 }
 
 /*** Navigation bar ***/
@@ -68,4 +76,15 @@ body {
   justify-content: space-evenly;
   align-items: center;
   margin-right: 50px;
+}
+
+/*** Bucket creation page ***/
+.creator {
+  justify-content: center;
+}
+
+.creator form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }

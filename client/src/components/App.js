@@ -5,12 +5,14 @@ import Nav from './Nav.js';
 import Sidebar from './Sidebar.js';
 import Bucket from './Bucket.js';
 import Selector from './Selector.js';
+import Creator from './Creator.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      view: 'bucket', // change later when 'home' bucket is implemented
       color: 'cyan',
       bucket: {
         createdAt: Date.now(),
@@ -23,10 +25,12 @@ class App extends React.Component {
 
     this.selectColor = this.selectColor.bind(this);
     this.addDrop = this.addDrop.bind(this);
+    this.setView = this.setView.bind(this);
+    this.createBucket = this.createBucket.bind(this);
   }
 
   componentDidMount() {
-    api.get('62717e86c2bd1f47fa7eaa06')
+    api.get('62717e86c2bd1f47fa7eaa06') // change to 'all' later
       .then((bucket) => {
         this.setState({bucket: bucket})
       })
@@ -47,13 +51,38 @@ class App extends React.Component {
     });
   }
 
+  setView(e) {
+    this.setState({
+      view: e.target.name
+    });
+  }
+
+  createBucket() {}
+
   render() {
-    return (
-      <div className="main">
-        <Nav/>
+    let page;
+    if (this.state.view === 'home') {
+      page = <div className="page">
+        <Bucket bucket={this.state.bucket} addDrop={this.addDrop}/>
+        </div>
+    } else if (this.state.view === 'bucket') {
+      page = <div className="page">
         <Sidebar bucket={this.state.bucket}/>
         <Bucket bucket={this.state.bucket} addDrop={this.addDrop}/>
         <Selector color={this.state.color} select={this.selectColor} />
+      </div>
+    } else if (this.state.view === 'browse') {
+      page = <div className="page"></div>;
+    } else if (this.state.view === 'create') {
+      page = <div className="page creator">
+        <Creator submit={this.createBucket}/>
+      </div>;
+    }
+
+    return (
+      <div className="main">
+        <Nav setView={this.setView} view={this.state.view}/>
+        {page}
       </div>
     );
   }

@@ -3,10 +3,10 @@ import React from 'react';
 const Nav = ({setView}) => {
   return (
     <div className="nav">
-      <button className="home-btn"><h1>PAINT</h1></button>
+      <button name="home" className="home-btn"><h1>PAINT</h1></button>
       <div className="nav-btns">
-        <button>Browse</button>
-        <button>Create</button>
+        <button name="browse" onClick={setView}>Browse</button>
+        <button name="create" onClick={setView}>Create</button>
       </div>
     </div>
   );
