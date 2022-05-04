@@ -10,7 +10,9 @@ const SidebarHome = ({bucket, info}) => {
       <div>Browse or create a new bucket to add to the mix!</div>
       <br/>
       <div>Hex color:</div>
-      <div><input type="text" value={mixColor(bucket)} readOnly/></div>
+      <div className="hexbox">
+        <input type="text" value={mixColor(bucket)} onFocus={(e) => { e.target.select(); }} readOnly/>
+      </div>
     </div>
   );
 };
