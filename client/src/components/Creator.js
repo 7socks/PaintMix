@@ -30,10 +30,12 @@ class Creator extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor="name">Bucket name</label>
-        <input type="text" name="name" value={this.state.name} onChange={this.change} />
-        <div>Choose a starting color</div>
+        <div className="creator-header">Create a Paint Bucket</div>
+        <label htmlFor="name">Bucket name<br/>
+          <input type="text" name="name" value={this.state.name} onChange={this.change} />
+        </label>
 
+        <div><span>Choose a starting color</span>
         <div className="sc-creator">
           <label className="sel-label" htmlFor="cyan">
             <input type="radio" name="color" value="cyan" id="cyan"
@@ -51,6 +53,7 @@ class Creator extends React.Component {
               onChange={this.change}
             /><span className="selector sel-yellow"><ImDroplet /></span>
           </label>
+        </div>
         </div>
 
         <button onClick={this.submit}>Create Bucket</button>

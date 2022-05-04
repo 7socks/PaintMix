@@ -1,6 +1,7 @@
 /*** Main ***/
 body {
   margin: 0;
+  background-image: url('assets/watercolor.jpg');
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -73,6 +74,14 @@ body {
   border-radius: 50%;
 }
 
+.bucket-container img {
+  opacity: 50%;
+  filter: hue-rotate(30deg);
+  height: 600px;
+  border-radius: 50%;
+  position: absolute;
+}
+
 /*** Bucket info sidebar ***/
 .sidebar {
   margin-left: 20px;
@@ -116,6 +125,8 @@ body {
   height: 1.2em;
   width: 1.2em;
   box-sizing: border-box;
+  background: white;
+  background-clip: text;
 }
 
 .sel-cyan {
@@ -125,8 +136,7 @@ body {
   background: #d9ffff;
 }
 input[type=radio]:checked + .sel-cyan {
-  background: #d9ffff;
-  border: 1px solid #198080;
+  border: 4px solid #198080;
 }
 
 .sel-magenta {
@@ -136,8 +146,7 @@ input[type=radio]:checked + .sel-cyan {
   background: #ffd9ff;
 }
 input[type=radio]:checked + .sel-magenta {
-  background: #ffd9ff;
-  border: 1px solid #801980;
+  border: 4px solid #801980;
 }
 
 .sel-yellow {
@@ -147,19 +156,24 @@ input[type=radio]:checked + .sel-magenta {
   background: #ffffd9;
 }
 input[type=radio]:checked + .sel-yellow {
-  background: #ffffd9;
-  border: 1px solid #808019;
+  border: 4px solid #808019;
 }
 
 /*** Bucket creation page ***/
 .creator {
   justify-content: center;
+  height: 100%;
 }
 
 .creator form {
+  background-color: white;
+  height: 20em;
+  width: 20em;
+  padding: 2em;
+  margin: 2em;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  justify-content: space-between;
 }
 
 .sc-creator {
@@ -169,7 +183,7 @@ input[type=radio]:checked + .sel-yellow {
 }
 
 .sc-creator .selector {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 /*** Browse buckets ***/
@@ -194,6 +208,7 @@ input[type=radio]:checked + .sel-yellow {
   flex-direction: column;
   justify-content: center;
   cursor: default;
+  background: white;
 }
 
 .browse li:hover {

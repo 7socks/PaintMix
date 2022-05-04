@@ -21,7 +21,8 @@ class BrowseList extends React.Component {
   }
 
   render() {
-    let list = this.state.list.slice(this.state.page, this.state.page + 10);
+    //let list = this.state.list.slice(this.state.page, this.state.page + 10);
+    let list = this.state.list;
     return (
       <ul>
         {list.map((bucket, i) => {
