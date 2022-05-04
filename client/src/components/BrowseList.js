@@ -9,22 +9,15 @@ class BrowseList extends React.Component {
       page: 0,
       list: []
     };
-
-    this.select = this.select.bind(this);
   }
 
   componentDidMount() {
     api.getAll()
       .then((data) => {
-        console.log(data);
         this.setState({
           list: data
         });
       })
-  }
-
-  select(bucket) {
-    console.log(bucket);
   }
 
   render() {
@@ -34,7 +27,7 @@ class BrowseList extends React.Component {
         {list.map((bucket, i) => {
           return <li
             key={i}
-            onClick={() => { this.select(bucket); }}
+            onClick={() => { this.props.select(bucket.id); }}
           >{bucket.name}</li>;
         })}
       </ul>

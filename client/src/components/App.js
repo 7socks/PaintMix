@@ -29,6 +29,7 @@ class App extends React.Component {
     this.addDrop = this.addDrop.bind(this);
     this.setView = this.setView.bind(this);
     this.createBucket = this.createBucket.bind(this);
+    this.selectBucket = this.selectBucket.bind(this);
   }
 
   componentDidMount() {
@@ -42,7 +43,6 @@ class App extends React.Component {
   addDrop(e) {
     api.put(this.state.bucket.id, this.state.color)
       .then((bucket) => {
-        console.log(bucket);
         this.setState({bucket: bucket});
       });
   }
@@ -69,6 +69,16 @@ class App extends React.Component {
       });
   }
 
+  selectBucket(id) {
+    api.get(id)
+      .then((bucket) => {
+        this.setState({
+          view: 'bucket',
+          bucket: bucket
+        });
+      });
+  }
+
   render() {
     let page;
     if (this.state.view === 'home') {
@@ -83,7 +93,7 @@ class App extends React.Component {
       </div>
     } else if (this.state.view === 'browse') {
       page = <div className="page browse">
-        <BrowseList list={this.state.list}/>
+        <BrowseList list={this.state.list} select={this.selectBucket}/>
       </div>;
     } else if (this.state.view === 'create') {
       page = <div className="page creator">

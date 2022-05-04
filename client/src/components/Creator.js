@@ -14,7 +14,6 @@ class Creator extends React.Component {
   }
 
   change(e) {
-    console.log(e.target.name, e.target.value);
     this.setState({
       [e.target.name]: e.target.value
     });
