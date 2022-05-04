@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImDroplet } from 'react-icons/im';
 
 class Creator extends React.Component {
   constructor(props) {
@@ -30,11 +31,28 @@ class Creator extends React.Component {
     return (
       <form>
         <label htmlFor="name">Bucket name</label>
-        <input type="text" name="name" value={this.state.name} onChange={this.change}/>
-        <label htmlFor="color">Choose a starting color</label>
-        <input type="radio" name="color" value="cyan" className="selector sel-cyan" onChange={this.change} defaultChecked={true}/>
-        <input type="radio" name="color" value="magenta" className="selector sel-magenta" onChange={this.change} />
-        <input type="radio" name="color" value="yellow" className="selector sel-yellow" onChange={this.change} />
+        <input type="text" name="name" value={this.state.name} onChange={this.change} />
+        <div>Choose a starting color</div>
+
+        <div className="sc-creator">
+          <label className="sel-label" htmlFor="cyan">
+            <input type="radio" name="color" value="cyan" id="cyan"
+              onChange={this.change}
+              defaultChecked={true}
+            /><span className="selector sel-cyan"><ImDroplet /></span>
+          </label>
+          <label className="sel-label" htmlFor="magenta">
+            <input type="radio" name="color" value="magenta" id="magenta"
+              onChange={this.change}
+            /><span className="selector sel-magenta"><ImDroplet /></span>
+          </label>
+          <label className="sel-label" htmlFor="yellow">
+            <input type="radio" name="color" value="yellow" id="yellow"
+              onChange={this.change}
+            /><span className="selector sel-yellow"><ImDroplet /></span>
+          </label>
+        </div>
+
         <button onClick={this.submit}>Create Bucket</button>
       </form>
     )

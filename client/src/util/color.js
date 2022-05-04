@@ -13,3 +13,4 @@ const mixColor = ({c, m, y}) => {
 };
 
 export default mixColor;
+

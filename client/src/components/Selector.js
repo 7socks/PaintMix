@@ -1,24 +1,23 @@
 import React from 'react';
+import { ImDroplet } from 'react-icons/im';
 
 const Selector = ({color, select}) => {
   return (
     <div className="selector-container">
-      <label>
-      <input type="radio" name="color" value="cyan"
-        className="selector sel-cyan"
+      <div className="sel-header">Paint Color</div>
+      <label className="sel-label" htmlFor="cyan">
+      <input type="radio" name="color" value="cyan" id="cyan"
         onChange={select}
         defaultChecked={true}
-      />cyan</label>
-      <label>
-      <input type="radio" name="color" value="magenta"
-        className="selector sel-magenta"
+      /><span className="selector sel-cyan"><ImDroplet/></span></label>
+      <label className="sel-label" htmlFor="magenta">
+      <input type="radio" name="color" value="magenta" id="magenta"
         onChange={select}
-      />magenta</label>
-      <label>
-      <input type="radio" name="color" value="yellow"
-        className="selector sel-yellow"
+      /><span className="selector sel-magenta"><ImDroplet/></span></label>
+      <label className="sel-label" htmlFor="yellow">
+      <input type="radio" name="color" value="yellow" id="yellow"
         onChange={select}
-      />yellow</label>
+      /><span className="selector sel-yellow"><ImDroplet/></span></label>
     </div>
   );
 };

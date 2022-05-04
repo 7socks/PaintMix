@@ -98,6 +98,59 @@ body {
   margin-right: 50px;
 }
 
+.sel-header {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sel-label input {
+  appearance: none;
+}
+
+.selector {
+  font-size: 4em;
+  border-radius: 50%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 1.2em;
+  width: 1.2em;
+  box-sizing: border-box;
+}
+
+.sel-cyan {
+  color: #30f2f2;
+}
+.sel-cyan:hover {
+  background: #d9ffff;
+}
+input[type=radio]:checked + .sel-cyan {
+  background: #d9ffff;
+  border: 1px solid #198080;
+}
+
+.sel-magenta {
+  color: #f230f2;
+}
+.sel-magenta:hover {
+  background: #ffd9ff;
+}
+input[type=radio]:checked + .sel-magenta {
+  background: #ffd9ff;
+  border: 1px solid #801980;
+}
+
+.sel-yellow {
+  color: #f2f230;
+}
+.sel-yellow:hover {
+  background: #ffffd9;
+}
+input[type=radio]:checked + .sel-yellow {
+  background: #ffffd9;
+  border: 1px solid #808019;
+}
+
 /*** Bucket creation page ***/
 .creator {
   justify-content: center;
@@ -107,6 +160,16 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
+}
+
+.sc-creator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sc-creator .selector {
+  font-size: 2em;
 }
 
 /*** Browse buckets ***/
