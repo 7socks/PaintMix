@@ -27,7 +27,7 @@ const format = (data) => {
 app.get('/buckets/all', (req, res) => {
   db.getAll()
     .then((data) => {
-      var all = {c: 0, m: 0, y: 0};
+      var all = {c: 0, m: 0, y: 0, qty: data.length};
       for (var i = 0; i < data.length; i++) {
         all.c += data[i].C;
         all.m += data[i].M;

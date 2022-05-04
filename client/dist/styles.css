@@ -29,8 +29,12 @@ body {
   justify-content: space-between;
 }
 
-.home-btn h1 {
+.home-btn {
   margin: 5px 20px;
+  font-size: 32px;
+  font-weight: 700;
+  background: inherit;
+  border: none;
 }
 
 .home-btn:hover {
@@ -43,7 +47,7 @@ body {
   align-content: center;
 }
 
-.nav button {
+.nav-btns button {
   font-size: 16px;
   font-family: inherit;
   padding: 0 20px;
@@ -53,6 +57,11 @@ body {
 
 .nav-btns button:hover {
   background: lightyellow;
+}
+
+/*** Home page ***/
+.home {
+  justify-content: flex-start;
 }
 
 /*** Paint bucket ***/
@@ -67,6 +76,10 @@ body {
 /*** Bucket info sidebar ***/
 .sidebar {
   margin-left: 20px;
+}
+
+.sidebar div {
+  margin-bottom: 5%;
 }
 
 /*** Color selector ***/

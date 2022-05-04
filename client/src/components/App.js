@@ -7,22 +7,24 @@ import Bucket from './Bucket.js';
 import Selector from './Selector.js';
 import Creator from './Creator.js';
 import BrowseList from './BrowseList.js';
+import SidebarHome from './SidebarHome.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      view: 'bucket', // change later when 'home' bucket is implemented
+      view: 'home',
       color: 'cyan',
       bucket: {
+        id: null,
         createdAt: Date.now(),
         name: 'all',
         c: 0,
         m: 0,
         y: 0
       },
-      list: []
+      info: {}
     };
 
     this.selectColor = this.selectColor.bind(this);
@@ -30,14 +32,11 @@ class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.createBucket = this.createBucket.bind(this);
     this.selectBucket = this.selectBucket.bind(this);
+    this.getHome = this.getHome.bind(this);
   }
 
   componentDidMount() {
-    api.get('62717e86c2bd1f47fa7eaa06') // change to 'all' later
-      .then((bucket) => {
-        this.setState({bucket: bucket})
-      })
-      .catch((err) => console.error(err));
+    this.getHome();
   }
 
   addDrop(e) {
@@ -79,12 +78,33 @@ class App extends React.Component {
       });
   }
 
+  getHome() {
+    api.getHome()
+      .then((data) => {
+        this.setState({
+          view: 'home',
+          bucket: {
+            id: null,
+            createdAt: Date.now(),
+            name: 'all',
+            c: data.c,
+            m: data.m,
+            y: data.y
+          },
+          info: {
+            qty: data.qty
+          }
+        });
+      });
+  }
+
   render() {
     let page;
     if (this.state.view === 'home') {
-      page = <div className="page">
+      page = <div className="page home">
+        <SidebarHome bucket={this.state.bucket} info={this.state.info}/>
         <Bucket bucket={this.state.bucket}/>
-        </div>
+      </div>
     } else if (this.state.view === 'bucket') {
       page = <div className="page">
         <Sidebar bucket={this.state.bucket}/>
@@ -93,7 +113,7 @@ class App extends React.Component {
       </div>
     } else if (this.state.view === 'browse') {
       page = <div className="page browse">
-        <BrowseList list={this.state.list} select={this.selectBucket}/>
+        <BrowseList select={this.selectBucket}/>
       </div>;
     } else if (this.state.view === 'create') {
       page = <div className="page creator">
@@ -103,7 +123,7 @@ class App extends React.Component {
 
     return (
       <div className="main">
-        <Nav setView={this.setView} view={this.state.view}/>
+        <Nav setView={this.setView} view={this.state.view} getHome={this.getHome}/>
         {page}
       </div>
     );
