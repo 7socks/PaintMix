@@ -45,10 +45,22 @@ export default {
         console.error(err);
       });
   },
-  getAll: () => {
+  getHome: () => {
     return axios({
       method: 'GET',
       url: 'buckets/all'
+    })
+      .then(({data}) => {
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+  getAll: () => {
+    return axios({
+      method: 'GET',
+      url: 'buckets/browse'
     })
       .then(({data}) => {
         return data;

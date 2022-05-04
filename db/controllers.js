@@ -20,3 +20,7 @@ module.exports.create = (data) => {
     [color]: 1
   });
 };
+
+module.exports.getAll = () => {
+  return Bucket.find();
+};

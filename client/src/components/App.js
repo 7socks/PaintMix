@@ -6,6 +6,7 @@ import Sidebar from './Sidebar.js';
 import Bucket from './Bucket.js';
 import Selector from './Selector.js';
 import Creator from './Creator.js';
+import BrowseList from './BrowseList.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class App extends React.Component {
         c: 0,
         m: 0,
         y: 0
-      }
+      },
+      list: []
     };
 
     this.selectColor = this.selectColor.bind(this);
@@ -80,7 +82,9 @@ class App extends React.Component {
         <Selector color={this.state.color} select={this.selectColor} />
       </div>
     } else if (this.state.view === 'browse') {
-      page = <div className="page"></div>;
+      page = <div className="page browse">
+        <BrowseList list={this.state.list}/>
+      </div>;
     } else if (this.state.view === 'create') {
       page = <div className="page creator">
         <Creator submit={this.createBucket}/>

@@ -25,15 +25,34 @@ const format = (data) => {
 
 // Routing
 app.get('/buckets/all', (req, res) => {
-  db.collate()
+  db.getAll()
     .then((data) => {
-      res.status(200).send(data);
+      var all = {c: 0, m: 0, y: 0};
+      for (var i = 0; i < data.length; i++) {
+        all.c += data[i].C;
+        all.m += data[i].M;
+        all.y += data[i].Y;
+      }
+      res.status(200).send(all);
     })
     .catch((err) => {
       console.error(err);
       res.status(500).send();
     });
 })
+
+app.get('/buckets/browse', (req, res) => {
+  db.getAll()
+    .then((data) => {
+      res.status(200).send(data.map((item) => {
+        return { id: item._id, name: item.name };
+      }));
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send();
+    });
+});
 
 app.get('/buckets', (req, res) => {
   db.get(req.query.id)

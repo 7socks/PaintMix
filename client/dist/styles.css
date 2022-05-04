@@ -88,3 +88,22 @@ body {
   flex-direction: column;
   background-color: white;
 }
+
+/*** Browse buckets ***/
+.browse ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.browse li {
+  width: 5em;
+  height: 5em;
+  text-align: center;
+  text-anchor: middle;
+  border: 2px solid #505050;
+  border-radius: 5%;
+}
