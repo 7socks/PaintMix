@@ -18,7 +18,7 @@ const HomeButton = styled.button`
 const Nav = ({setView, getHome, getRandom}) => {
   return (
     <div className="nav">
-      <HomeButton name="title" onClick={getRandom}>PAINT</HomeButton>
+      <HomeButton name="title" onClick={getRandom}>PaintMix</HomeButton>
       <div className="nav-btns">
         <button name="home" onClick={getHome}>Home</button>
         <button name="browse" onClick={setView}>Browse</button>
