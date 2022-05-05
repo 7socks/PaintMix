@@ -31,7 +31,7 @@ class Creator extends React.Component {
     return (
       <form>
         <div className="creator-header">Create a Paint Bucket</div>
-        <label htmlFor="name">Bucket name<br/>
+        <label htmlFor="name">Name your bucket<br/><br/>
           <input type="text" name="name" value={this.state.name} onChange={this.change} />
         </label>
 

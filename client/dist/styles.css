@@ -124,9 +124,9 @@ body {
   align-content: center;
   height: 1.2em;
   width: 1.2em;
-  box-sizing: border-box;
   background: white;
   background-clip: text;
+  border: 4px solid transparent;
 }
 
 .sel-cyan {
@@ -136,7 +136,7 @@ body {
   background: #d9ffff;
 }
 input[type=radio]:checked + .sel-cyan {
-  border: 4px solid #198080;
+  border-color: #198080;
 }
 
 .sel-magenta {
@@ -146,7 +146,7 @@ input[type=radio]:checked + .sel-cyan {
   background: #ffd9ff;
 }
 input[type=radio]:checked + .sel-magenta {
-  border: 4px solid #801980;
+  border-color: #801980;
 }
 
 .sel-yellow {
@@ -156,13 +156,17 @@ input[type=radio]:checked + .sel-magenta {
   background: #ffffd9;
 }
 input[type=radio]:checked + .sel-yellow {
-  border: 4px solid #808019;
+  border-color: #808019
 }
 
 /*** Bucket creation page ***/
 .creator {
   justify-content: center;
   height: 100%;
+}
+
+.creator-header {
+  font-weight: 700;
 }
 
 .creator form {
@@ -174,6 +178,7 @@ input[type=radio]:checked + .sel-yellow {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 5%;
 }
 
 .sc-creator {
@@ -184,16 +189,40 @@ input[type=radio]:checked + .sel-yellow {
 
 .sc-creator .selector {
   font-size: 3em;
+  border: 2px solid transparent;
+}
+
+.creator input[type=text] {
+  font-size: 16px;
+  height: 1.5em;
+  border: 2px solid #505050;
+}
+
+.creator button {
+  align-self: center;
+  font-family: inherit;
+  font-size: 16px;
+  height: 2em;
+  width: fit-content;
+  border-radius: 50px;
+  border: 2px solid #434384;
+  background: white;
+  color: #434384;
+}
+
+.creator button:hover {
+  background: #434384;
+  color: white;
 }
 
 /*** Browse buckets ***/
 .browse ul {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
   list-style: none;
+  padding: 0;
 }
 
 .browse li {
@@ -201,7 +230,7 @@ input[type=radio]:checked + .sel-yellow {
   height: 6em;
   text-align: center;
   text-anchor: middle;
-  border: 5px solid #505050;
+  border: 5px solid #434384;
   border-radius: 50%;
   font-size: 24px;
   display: flex;
@@ -209,9 +238,10 @@ input[type=radio]:checked + .sel-yellow {
   justify-content: center;
   cursor: default;
   background: white;
+  margin-bottom: 1.5em;
 }
 
 .browse li:hover {
-  background: #505050;
+  background: #434384;
   color: white;
 }
