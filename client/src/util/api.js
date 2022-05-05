@@ -68,5 +68,17 @@ export default {
       .catch((err) => {
         console.error(err);
       });
+  },
+  getRandom: () => {
+    return axios({
+      method: 'GET',
+      url: 'buckets/random'
+    })
+      .then(({ data }) => {
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 };

@@ -32,15 +32,6 @@ body {
   background-size: 100%;
 }
 
-.home-btn {
-  margin: 5px 20px;
-  font-size: 32px;
-  font-weight: 700;
-  background: transparent;
-  border: none;
-  color: white;
-}
-
 .nav-btns {
   display: flex;
   flex-direction: row;

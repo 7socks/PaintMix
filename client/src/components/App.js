@@ -33,6 +33,7 @@ class App extends React.Component {
     this.createBucket = this.createBucket.bind(this);
     this.selectBucket = this.selectBucket.bind(this);
     this.getHome = this.getHome.bind(this);
+    this.getRandom = this.getRandom.bind(this);
   }
 
   componentDidMount() {
@@ -70,6 +71,16 @@ class App extends React.Component {
 
   selectBucket(id) {
     api.get(id)
+      .then((bucket) => {
+        this.setState({
+          view: 'bucket',
+          bucket: bucket
+        });
+      });
+  }
+
+  getRandom() {
+    api.getRandom()
       .then((bucket) => {
         this.setState({
           view: 'bucket',
@@ -123,7 +134,7 @@ class App extends React.Component {
 
     return (
       <div className="main">
-        <Nav setView={this.setView} view={this.state.view} getHome={this.getHome}/>
+        <Nav setView={this.setView} getHome={this.getHome} getRandom={this.getRandom}/>
         {page}
       </div>
     );

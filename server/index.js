@@ -54,6 +54,18 @@ app.get('/buckets/browse', (req, res) => {
     });
 });
 
+app.get('/buckets/random', (req, res) => {
+  db.getAll()
+    .then((data) => {
+      var index = Math.floor(Math.random() * (data.length - 1));
+      res.status(200).send(format(data[index]));
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send();
+    });
+});
+
 app.get('/buckets', (req, res) => {
   db.get(req.query.id)
     .then((data) => {
