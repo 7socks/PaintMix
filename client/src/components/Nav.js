@@ -21,6 +21,7 @@ const Nav = ({setView, getHome, getRandom}) => {
       <HomeButton name="title" onClick={getRandom}>PaintMix</HomeButton>
       <div className="nav-btns">
         <button name="home" onClick={getHome}>Home</button>
+        <button name="play" onClick={setView}>Play</button>
         <button name="browse" onClick={setView}>Browse</button>
         <button name="create" onClick={setView}>Create</button>
       </div>

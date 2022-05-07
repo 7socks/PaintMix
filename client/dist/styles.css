@@ -150,14 +150,51 @@ input[type=radio]:checked + .sel-yellow {
   border-color: #808019
 }
 
+/*** Dialog box (reusable) ***/
+.dialog {
+  background-color: white;
+  /* height: 20em; */
+  width: 20em;
+  padding: 2em;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5%;
+}
+
+.dialog-header {
+  font-weight: 700;
+}
+
+.dialog input[type=text],
+.dialog input[type=number] {
+  font-size: 16px;
+  height: 1.5em;
+  border: 2px solid #505050;
+}
+
+.dialog button {
+  align-self: center;
+  font-family: inherit;
+  font-size: 16px;
+  height: 2em;
+  width: fit-content;
+  border-radius: 50px;
+  border: 2px solid #434384;
+  background: white;
+  color: #434384;
+}
+
+.dialog button:hover {
+  background: #434384;
+  color: white;
+}
+
 /*** Bucket creation page ***/
 .creator {
   justify-content: center;
   height: 100%;
-}
-
-.creator-header {
-  font-weight: 700;
 }
 
 .creator form {
@@ -235,4 +272,45 @@ input[type=radio]:checked + .sel-yellow {
 .browse li:hover {
   background: #434384;
   color: white;
+}
+
+
+/*** Game ***/
+.gb-drops {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.game-menu, .game-end {
+  justify-content: center;
+}
+
+.game-menu .dialog {
+  height: 10em;
+}
+
+.game-end .dialog {
+  height: 15em;
+}
+
+.compare-swatches {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: content-box;
+  height: 6em;
+  justify-content: space-evenly;
+}
+
+.game-end-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

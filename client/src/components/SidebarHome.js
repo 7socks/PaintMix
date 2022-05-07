@@ -1,5 +1,5 @@
 import React from 'react';
-import mixColor from '../util/color.js';
+import { mixColor } from '../util/color.js';
 
 const SidebarHome = ({bucket, info}) => {
   let total = bucket.c + bucket.m + bucket.y;
