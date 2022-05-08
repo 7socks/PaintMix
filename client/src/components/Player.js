@@ -30,11 +30,14 @@ class Player extends React.Component {
     this.change = this.change.bind(this);
     this.addDrop = this.addDrop.bind(this);
     this.selectColor = this.selectColor.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   change(e) {
+    console.log(e.target);
+    e.preventDefault();
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: Number(e.target.value)
     });
   }
 
@@ -42,7 +45,19 @@ class Player extends React.Component {
     e.preventDefault();
     this.setState({
       view: 'play',
-      solution: randomMix(this.state.qty)
+      solution: randomMix(this.state.qty),
+      color: 'cyan',
+      c: 0,
+      m: 0,
+      y: 0
+    });
+  }
+
+  reset(e) {
+    e.preventDefault();
+    this.setState({
+      view: 'menu',
+      qty: 2
     });
   }
 
@@ -67,13 +82,15 @@ class Player extends React.Component {
         <div className="page player game-menu">
           <form className="dialog">
             <div className="dialog-header">Game Settings</div>
-            <label htmlFor="qty"> Number of drops<br/>
-            <input type="number"
-              id="qty"
-              name="qty"
-              value={this.state.qty}
-              onChange={this.change}
-            />
+            <label htmlFor="qty">Number of drops<br/>
+            <select name="qty" onChange={this.change}>
+              <option value="2" selected>2</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
             </label>
             <button name="play" onClick={this.play}>Start</button>
           </form>
@@ -112,7 +129,6 @@ class Player extends React.Component {
           <div className="dialog">
             <div className="dialog-header">Your Score</div>
             <div>{colorScore(this.state.solution, bucket)} of {this.state.qty} points</div>
-            <div>insert % proximity to target here :)</div>
             <div className="compare-swatches">
               <div className="swatch">
                 <div>Target color</div>
@@ -127,7 +143,7 @@ class Player extends React.Component {
             </div>
             <div className="game-end-nav">
               <button onClick={this.play}>Play Again</button>
-              <button>Settings</button>
+              <button onClick={this.reset}>Settings</button>
             </div>
           </div>
         </div>
