@@ -33,6 +33,12 @@ const randomMix = (qty) => {
   };
 };
 
+const randomHex = () => {
+  let cmyk = randomMix(100);
+  cmyk.k = 0;
+  return colord(cmyk).toHex();
+};
+
 const colorScore = (target, result) => {
   console.log(target, result);
   var total = target.c + target.m + target.y;
@@ -44,4 +50,4 @@ const colorScore = (target, result) => {
   return (score + total) / 2;
 }
 
-export { mixColor, randomMix, colorScore };
+export { mixColor, randomMix, randomHex, colorScore };
