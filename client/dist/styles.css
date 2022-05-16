@@ -1,0 +1,238 @@
+/*** Main ***/
+body {
+  margin: 0;
+  background-image: url('assets/watercolor.jpg');
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+/*** Navigation bar ***/
+.nav {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 247, 177);
+  background-image: url('assets/wood.jpg');
+  background-size: 100%;
+}
+
+.nav-btns {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.nav-btns button {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.nav-btns button:hover {
+  background: rgb(255,255,255,.3)
+}
+
+/*** Home page ***/
+.home {
+  justify-content: flex-start;
+}
+
+/*** Paint bucket ***/
+.bucket-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 10px 50px;
+  border-radius: 50%;
+}
+
+.bucket-container img {
+  opacity: 50%;
+  filter: hue-rotate(30deg);
+  height: 600px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/*** Bucket info sidebar ***/
+.sidebar {
+  margin-left: 20px;
+}
+
+.sidebar div {
+  margin-bottom: 5%;
+}
+
+.hexbox input {
+  font-size: 16px;
+  width: 5em;
+  height: 1.5em;
+  border: 2px solid #505050;
+}
+
+/*** Color selector ***/
+.selector-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.sel-header {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sel-label input {
+  appearance: none;
+}
+
+.selector {
+  font-size: 4em;
+  border-radius: 50%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 1.2em;
+  width: 1.2em;
+  background: white;
+  background-clip: text;
+  border: 4px solid transparent;
+}
+
+.sel-cyan {
+  color: #30f2f2;
+}
+.sel-cyan:hover {
+  background: #d9ffff;
+}
+input[type=radio]:checked + .sel-cyan {
+  border-color: #198080;
+}
+
+.sel-magenta {
+  color: #f230f2;
+}
+.sel-magenta:hover {
+  background: #ffd9ff;
+}
+input[type=radio]:checked + .sel-magenta {
+  border-color: #801980;
+}
+
+.sel-yellow {
+  color: #f2f230;
+}
+.sel-yellow:hover {
+  background: #ffffd9;
+}
+input[type=radio]:checked + .sel-yellow {
+  border-color: #808019
+}
+
+/*** Bucket creation page ***/
+.creator {
+  justify-content: center;
+  height: 100%;
+}
+
+.creator-header {
+  font-weight: 700;
+}
+
+.creator form {
+  background-color: white;
+  height: 20em;
+  width: 20em;
+  padding: 2em;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5%;
+}
+
+.sc-creator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sc-creator .selector {
+  font-size: 3em;
+  border: 2px solid transparent;
+}
+
+.creator input[type=text] {
+  font-size: 16px;
+  height: 1.5em;
+  border: 2px solid #505050;
+}
+
+.creator button {
+  align-self: center;
+  font-family: inherit;
+  font-size: 16px;
+  height: 2em;
+  width: fit-content;
+  border-radius: 50px;
+  border: 2px solid #434384;
+  background: white;
+  color: #434384;
+}
+
+.creator button:hover {
+  background: #434384;
+  color: white;
+}
+
+/*** Browse buckets ***/
+.browse ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.browse li {
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  text-anchor: middle;
+  border: 5px solid #434384;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+  background: white;
+  margin-bottom: 1.5em;
+}
+
+.browse li:hover {
+  background: #434384;
+  color: white;
+}
