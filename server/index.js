@@ -77,7 +77,7 @@ app.get('/buckets', (req, res) => {
     });
 });
 
-app.put('/buckets/', (req, res) => {
+app.put('/buckets', (req, res) => {
   db.put({
     _id: req.body.id,
     color: req.body.color

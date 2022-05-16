@@ -1,6 +1,6 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
-import mixColor from '../util/color.js';
+import { mixColor } from '../util/color.js';
 
 const Sidebar = ({bucket}) => {
   let total = bucket.c + bucket.m + bucket.y;

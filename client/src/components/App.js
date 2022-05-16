@@ -6,6 +6,7 @@ import Sidebar from './Sidebar.js';
 import Bucket from './Bucket.js';
 import Selector from './Selector.js';
 import Creator from './Creator.js';
+import Player from './Player.js';
 import BrowseList from './BrowseList.js';
 import SidebarHome from './SidebarHome.js';
 
@@ -130,6 +131,8 @@ class App extends React.Component {
       page = <div className="page creator">
         <Creator submit={this.createBucket}/>
       </div>;
+    } else if (this.state.view === 'play') {
+      page = <Player/>;
     }
 
     return (

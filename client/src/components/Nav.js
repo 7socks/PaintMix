@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { random } from 'colord';
+import { randomHex } from '../util/color.js';
 
 const HomeButton = styled.button`
   margin: 5px 20px;
@@ -11,7 +11,7 @@ const HomeButton = styled.button`
   color: white;
 
   &:hover {
-    color: ${() => { return random().toHex(); }};
+    color: ${() => { return randomHex(); }};
   }
 `;
 
@@ -21,6 +21,7 @@ const Nav = ({setView, getHome, getRandom}) => {
       <HomeButton name="title" onClick={getRandom}>PaintMix</HomeButton>
       <div className="nav-btns">
         <button name="home" onClick={getHome}>Home</button>
+        <button name="play" onClick={setView}>Play</button>
         <button name="browse" onClick={setView}>Browse</button>
         <button name="create" onClick={setView}>Create</button>
       </div>
