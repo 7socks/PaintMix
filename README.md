@@ -7,8 +7,8 @@ PaintMix is a just-for-fun solo project created in roughly two days. Site visito
 This project is not currently deployed, but you can access it locally via the following steps.
 
 Pre-Requirements:
-* Node.js
-* MongoDB
+* [Node.js](https://nodejs.org)
+* [MongoDB](https://mongodb.com)
 
 After cloning this repo to your local machine, navigate to the project's root directory. Create a new file named `.env` and paste in this text: `DB_HOST=localhost:27017`. If your mongod process is running on a different port, amend this file accordingly.
 
